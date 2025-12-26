@@ -17,21 +17,27 @@
   the iteration process.
 -->
 
-**Language/Version**: [e.g., Python 3.11, Swift 5.9, Rust 1.75 or NEEDS CLARIFICATION]  
-**Primary Dependencies**: [e.g., FastAPI, UIKit, LLVM or NEEDS CLARIFICATION]  
-**Storage**: [if applicable, e.g., PostgreSQL, CoreData, files or N/A]  
-**Testing**: [e.g., pytest, XCTest, cargo test or NEEDS CLARIFICATION]  
-**Target Platform**: [e.g., Linux server, iOS 15+, WASM or NEEDS CLARIFICATION]
-**Project Type**: [single/web/mobile - determines source structure]  
-**Performance Goals**: [domain-specific, e.g., 1000 req/s, 10k lines/sec, 60 fps or NEEDS CLARIFICATION]  
-**Constraints**: [domain-specific, e.g., <200ms p95, <100MB memory, offline-capable or NEEDS CLARIFICATION]  
-**Scale/Scope**: [domain-specific, e.g., 10k users, 1M LOC, 50 screens or NEEDS CLARIFICATION]
+**Language/Version**: Python 3.x
+**Primary Dependencies**: [NEEDS CLARIFICATION]
+**Storage**: In-memory
+**Testing**: pytest
+**Target Platform**: Console
+**Project Type**: single
+**Performance Goals**: [NEEDS CLARIFICATION]
+**Constraints**: [NEEDS CLARIFICATION]
+**Scale/Scope**: [NEEDS CLARIFICATION]
 
 ## Constitution Check
 
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-[Gates determined based on constitution file]
+- [ ] **Spec-Driven Development**: Does the plan directly trace back to a feature specification?
+- [ ] **AI-Generated Code**: Is the implementation plan designed to be executed by an AI agent without manual coding?
+- [ ] **Python Console App**: Is the project being designed as a Python console application?
+- [ ] **In-Memory Storage**: Does the plan rely only on in-memory data structures, with no file or database persistence?
+- [ ] **Explicit Features Only**: Does the plan avoid adding any features not explicitly defined in the spec?
+- [ ] **Clean Architecture**: Does the proposed structure adhere to separation of concerns (e.g., models, services, UI)?
+- [ ] **Traceability to Spec**: Can every proposed task be mapped back to a specific requirement in the specification?
 
 ## Project Structure
 

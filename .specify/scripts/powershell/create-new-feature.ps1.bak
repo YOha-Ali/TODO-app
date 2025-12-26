@@ -46,7 +46,7 @@ function Find-RepositoryRoot {
     $current = Resolve-Path $StartDir
     while ($true) {
         foreach ($marker in $Markers) {
-            if (Test-Path "$current\$marker") {
+            if (Test-Path (Join-Path $current $marker)) {
                 return $current
             }
         }
@@ -149,7 +149,7 @@ try {
 
 Set-Location $repoRoot
 
-$specsDir = "$repoRoot\specs"
+$specsDir = Join-Path $repoRoot 'specs'
 New-Item -ItemType Directory -Path $specsDir -Force | Out-Null
 
 # Function to generate branch name with stop word filtering and length filtering
@@ -251,11 +251,11 @@ if ($hasGit) {
     Write-Warning "[specify] Warning: Git repository not detected; skipped branch creation for $branchName"
 }
 
-$featureDir = "$specsDir\$branchName"
+$featureDir = Join-Path $specsDir $branchName
 New-Item -ItemType Directory -Path $featureDir -Force | Out-Null
 
-$template = "$repoRoot\.specify\templates\spec-template.md"
-$specFile = "$featureDir\spec.md"
+$template = Join-Path $repoRoot '.specify/templates/spec-template.md'
+$specFile = Join-Path $featureDir 'spec.md'
 if (Test-Path $template) {
     Copy-Item $template $specFile -Force
 } else {
@@ -264,7 +264,7 @@ if (Test-Path $template) {
 
 # Auto-create history/prompts/<branch-name>/ directory (same as specs/<branch-name>/)
 # This keeps naming consistent across branch, specs, and prompts directories
-$promptsDir = "$repoRoot\history\prompts\$branchName"
+$promptsDir = Join-Path $repoRoot 'history' 'prompts' $branchName
 New-Item -ItemType Directory -Path $promptsDir -Force | Out-Null
 
 # Set the SPECIFY_FEATURE environment variable for the current session
@@ -285,3 +285,4 @@ if ($Json) {
     Write-Output "HAS_GIT: $hasGit"
     Write-Output "SPECIFY_FEATURE environment variable set to: $branchName"
 }
+
